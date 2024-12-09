@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lab 7 – Task 3</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+	<style>
+		main {
+			padding: 1.5rem 1rem;
+		}
+	</style>
+</head>
+
+<body>
+
+	<main>
+		<div class="container">
+			<h2 class="mb-4">Форма введення даних</h2>
+			<form id="dataForm" novalidate>
+				<!-- Освітня програма -->
+				<div class="row mb-3">
+					<div class="col-md-12">
+						<label for="program" class="form-label">Освітня програма</label>
+						<select id="program" class="form-select" required>
+							<option selected disabled value="">Оберіть освітню програму...</option>
+							<option>Програма 1</option>
+							<option>Програма 2</option>
+							<option>Програма 3</option>
+						</select>
+						<div class="invalid-feedback">Будь ласка, оберіть освітню програму.</div>
+					</div>
+				</div>
+
+				<!-- Освітній ступінь та Термін навчання -->
+				<div class="row mb-3">
+					<div class="col-md-6">
+						<label class="form-label">Освітній ступінь</label>
+						<div>
+							<input class="form-check-input" type="radio" name="degree" id="bachelor" value="Бакалавр" required>
+							<label class="form-check-label" for="bachelor">Бакалавр</label>
+							<input class="form-check-input" type="radio" name="degree" id="master" value="Магістр" required>
+							<label class="form-check-label" for="master">Магістр</label>
+							<div class="invalid-feedback">Будь ласка, оберіть освітній ступінь.</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label class="form-label">Термін навчання</label>
+						<div>
+							<input class="form-check-input" type="radio" name="term" id="short" value="Скорочений" required>
+							<label class="form-check-label" for="short">Скорочений</label>
+							<input class="form-check-input" type="radio" name="term" id="full" value="Повний" required>
+							<label class="form-check-label" for="full">Повний</label>
+							<div class="invalid-feedback">Будь ласка, оберіть термін навчання.</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Вид ОК -->
+				<div class="row mb-3">
+					<div class="col-md-12">
+						<label class="form-label">Вид ОК</label>
+						<div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="okType" id="mandatory" value="Обов'язкова компонента"
+									required>
+								<label class="form-check-label" for="mandatory">Обов'язкова компонента (ОК)</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="okType" id="optional" value="Обов'язкова за вибором"
+									required>
+								<label class="form-check-label" for="optional">Обов'язкова компонента за вибором інституту (ОК)</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="okType" id="special" value="Фахова компонента"
+									required>
+								<label class="form-check-label" for="special">Вибіркова фахова компонента (ВК)</label>
+								<div class="invalid-feedback">Будь ласка, оберіть вид ОК.</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Номер ОК за ОПП -->
+				<div class="row mb-3">
+					<div class="col-md-6">
+						<label for="okNumber" class="form-label">Номер ОК за ОПП</label>
+						<input type="text" id="okNumber" class="form-control" placeholder="01.09 або 10, 11 і.д." required>
+						<div class="invalid-feedback">Будь ласка, введіть номер ОК.</div>
+					</div>
+					<div class="col-md-6">
+						<label for="blockNumber" class="form-label">Номер з блоку (інакше 0)</label>
+						<input type="number" id="blockNumber" class="form-control" min="0" placeholder="0" required>
+						<div class="invalid-feedback">Будь ласка, введіть номер з блоку.</div>
+					</div>
+				</div>
+
+				<!-- Тип документа ОК -->
+				<div class="row mb-3">
+					<div class="col-md-6">
+						<label class="form-label">Тип документа ОК</label>
+						<div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="docType" id="annotation" value="Анотація" required>
+								<label class="form-check-label" for="annotation">Анотація</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="docType" id="syllabus" value="Силабус" required>
+								<label class="form-check-label" for="syllabus">Силабус</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="docType" id="program" value="Робоча програма"
+									required>
+								<label class="form-check-label" for="program">Робоча програма</label>
+							</div>
+						</div>
+						<div class="invalid-feedback">Будь ласка, оберіть тип документа.</div>
+					</div>
+					<div class="col-md-6">
+						<label for="approvalDate" class="form-label">Дата затвердження ОК</label>
+						<input type="date" id="approvalDate" class="form-control" required>
+						<div class="invalid-feedback">Будь ласка, введіть дату затвердження.</div>
+					</div>
+				</div>
+
+				<!-- Семестр -->
+				<div class="row mb-3">
+					<div class="col-md-12">
+						<label class="form-label">Семестр вивчення ОК</label>
+						<div class="d-flex flex-wrap gap-2">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="semester1" value="1">
+								<label class="form-check-label" for="semester1">1 сем.</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="semester2" value="2">
+								<label class="form-check-label" for="semester2">2 сем.</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="semester3" value="3">
+								<label class="form-check-label" for="semester3">3 сем.</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="semester4" value="4">
+								<label class="form-check-label" for="semester4">4 сем.</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="semester5" value="5">
+								<label class="form-check-label" for="semester5">5 сем.</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="semester6" value="6">
+								<label class="form-check-label" for="semester6">6 сем.</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="semester7" value="7">
+								<label class="form-check-label" for="semester7">7 сем.</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="semester8" value="8">
+								<label class="form-check-label" for="semester7">8 сем.</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Кнопки -->
+				<div class="mt-4">
+					<button type="submit" class="btn btn-primary">Send</button>
+					<button type="reset" class="btn btn-secondary">Clear</button>
+				</div>
+			</form>
+		</div>
+	</main>
+
+	<script>
+		document.getElementById("dataForm").addEventListener("submit", function (event) {
+			event.preventDefault();
+			if (this.checkValidity() === false) {
+				event.stopPropagation();
+			}
+			this.classList.add("was-validated");
+		});
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
